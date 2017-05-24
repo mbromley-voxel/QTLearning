@@ -4,7 +4,7 @@
 Entry_Dialog::Entry_Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Entry_Dialog)
 {
     ui->setupUi(this);
-//    connect(this,SIGNAL(on_pushButton_enter_clicked()),MainWindow,SLOT(setText()));
+
 }
 
 Entry_Dialog::~Entry_Dialog()

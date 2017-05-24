@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -111,5 +111,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_enter</sender>
+   <signal>clicked()</signal>
+   <receiver>Entry_Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
