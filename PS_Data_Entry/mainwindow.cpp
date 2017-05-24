@@ -3,6 +3,7 @@
 #include "entry_dialog.h"
 #include <QTableView>
 #include <QString>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -21,20 +22,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushbutton_addseg_clicked()
 {
-//    enterDia = new Entry_Dialog(this);
     Entry_Dialog enterDia(this);
 
     if(enterDia.exec()==QDialog::Accepted){
-        setText();
+        qDebug("I'm here");
+        QString p = enterDia.polarity_type();
+        int volt = enterDia.voltage();
+        int curr = enterDia.current();
+        double time = enterDia.time();
+        assignSegment(time,curr,volt,p);
     }
 }
 
-//    enterDia->setModal(true);
-//    enterDia->exec();
 
-
-void MainWindow::setText()
+void MainWindow::setText(QString s)
 {
-    ui->label_test->setText("Test Successful!");
+    ui->label_test->setText(s);
 }
 
+void MainWindow::assignSegment(double time, int current, int volt, QString polarity)
+{
+    qDebug("Assign segment called");
+    ui->label_test->setText(polarity);
+}

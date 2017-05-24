@@ -16,9 +16,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QString s;
 
 public slots:
-    void setText();
+    void setText(QString s);
 
 private slots:
     void on_pushbutton_addseg_clicked();
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Entry_Dialog *enterDia;
+    void assignSegment(double time, int current, int volt, QString polarity);
 };
 
 #endif // MAINWINDOW_H

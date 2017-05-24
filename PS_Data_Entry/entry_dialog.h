@@ -2,6 +2,7 @@
 #define ENTRY_DIALOG_H
 
 #include <QDialog>
+#include <QComboBox>
 
 namespace Ui {
 class Entry_Dialog;
@@ -15,6 +16,11 @@ public:
     explicit Entry_Dialog(QWidget *parent = 0);
     void on_pushButton_enter_clicked();
     int segno;
+    QString polarity_type();
+    int voltage();
+    int current();
+    double time();
+
     ~Entry_Dialog();
 
 private slots:
