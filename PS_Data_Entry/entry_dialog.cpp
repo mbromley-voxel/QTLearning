@@ -41,3 +41,7 @@ double Entry_Dialog::time()
 {
     return ui->doubleSpinBox_time->value();
 }
+int Entry_Dialog::segno()
+{
+    return ui->spinBox_segment->value();
+}

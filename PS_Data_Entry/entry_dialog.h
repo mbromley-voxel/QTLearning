@@ -15,11 +15,11 @@ class Entry_Dialog : public QDialog
 public:
     explicit Entry_Dialog(QWidget *parent = 0);
     void on_pushButton_enter_clicked();
-    int segno;
     QString polarity_type();
     int voltage();
     int current();
     double time();
+    int segno();
 
     ~Entry_Dialog();
 

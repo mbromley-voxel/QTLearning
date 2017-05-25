@@ -8,11 +8,10 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-//    enterDia = new Entry_Dialog(this);
+    model = new QStandardItemModel(4,2,this);
+    ui->tableView->setModel(model);
     ui->label_test->setText("hello");
-    ui->tableView->columnAt(0);
-    ui->tableView->rowAt(4);
-//    connect(enterDia,SIGNAL(on_pushButton_enter_clicked()),this,SLOT(setText()));
+
 }
 
 MainWindow::~MainWindow()
@@ -24,13 +23,15 @@ void MainWindow::on_pushbutton_addseg_clicked()
 {
     Entry_Dialog enterDia(this);
 
-    if(enterDia.exec()==QDialog::Accepted){
+    if(enterDia.exec()==QDialog::Accepted)
+    {
         qDebug("I'm here");
         QString p = enterDia.polarity_type();
         int volt = enterDia.voltage();
         int curr = enterDia.current();
         double time = enterDia.time();
-        assignSegment(time,curr,volt,p);
+        int seg = enterDia.segno();
+        assignSegment(time,curr,volt,p,seg);
     }
 }
 
@@ -40,8 +41,17 @@ void MainWindow::setText(QString s)
     ui->label_test->setText(s);
 }
 
-void MainWindow::assignSegment(double time, int current, int volt, QString polarity)
+void MainWindow::assignSegment(double time, int current, int volt, QString polarity, int segno)
 {
     qDebug("Assign segment called");
+    int col = segno-1;
+    QModelIndex index = model->index(0,col,QModelIndex());
+    model->setData(index,time);
+    index = model->index(1,col,QModelIndex());
+    model->setData(index,volt);
+    index = model->index(2,col,QModelIndex());
+    model->setData(index,current);
+    index = model->index(3,col,QModelIndex());
+    model->setData(index,polarity);
     ui->label_test->setText(polarity);
 }
