@@ -14,7 +14,6 @@ class Entry_Dialog : public QDialog
 
 public:
     explicit Entry_Dialog(QWidget *parent = 0);
-//    void on_pushButton_enter_clicked();
     QString polarity_type();
     int voltage();
     int current();

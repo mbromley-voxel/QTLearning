@@ -25,11 +25,13 @@ public slots:
 
 private slots:
     void on_pushbutton_addseg_clicked();
+    void on_pushButton_Rest_clicked();
 
 private:
     Ui::MainWindow *ui;
     Entry_Dialog *enterDia;
     void assignSegment(double time, int current, int volt, QString polarity, int segno);
+    void resetTable();
     QStandardItemModel  *model;
 };
 
