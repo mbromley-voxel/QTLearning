@@ -54,6 +54,11 @@ void MainWindow::assignSegment(double time, int current, int volt, QString polar
     if(segno>collen)
     {
         model->setColumnCount(segno);
+        for(int j=0;j<segno;j++)
+        {
+            QString segment = "Seg " + QString::number(j+1);
+            model->setHeaderData(j,Qt::Horizontal,segment);
+        }
     }
     // Sets the segment values entered by the user
         QModelIndex index = model->index(0,col,QModelIndex());
