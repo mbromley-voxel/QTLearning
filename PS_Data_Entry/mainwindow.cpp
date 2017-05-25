@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     model = new QStandardItemModel(4,2,this);
     ui->tableView->setModel(model);
+    model->setHeaderData(0,Qt::Horizontal,"Seg 1");
     ui->label_test->setText("hello");
 
 }
